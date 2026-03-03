@@ -36,7 +36,8 @@
     if (user) {
       document.getElementById('auth-screen').style.display  = 'none';
       document.getElementById('app-screen').style.display   = 'flex';
-      document.getElementById('user-email').textContent = user.email;
+      const ueEl = document.getElementById('user-email');
+      if (ueEl) ueEl.textContent = user.email;
       loadFromSheets();
     } else {
       document.getElementById('auth-screen').style.display  = 'flex';
