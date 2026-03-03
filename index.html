@@ -741,8 +741,8 @@ async function submitForm(type){
       renderHome();showToast('✓ נשמר!');
       document.getElementById('sbtn').disabled=false;
       document.getElementById('sbtn').textContent='✓ הוסף לרשימה';
-      ['item','qty'].forEach(function(fid){var el=document.getElementById(fid);if(el)el.value='';});
-      var iel=document.getElementById('item');if(iel)iel.focus();
+      ['f-item','f-qty'].forEach(function(fid){var el=document.getElementById(fid);if(el){el.value=fid=='f-qty'?'1':'';}});
+      var iel=document.getElementById('f-item');if(iel)iel.focus();
       return;
     }
     renderHome();closePanel();showToast('✓ נשמר בהצלחה!');
