@@ -738,6 +738,12 @@ async function submitForm(type){
     else if(type==='shopping'){
       const e={id,name:data.item,qty:data.qty,category:data.category};
       sList.push(e);lsw(K.s,sList);await post({action:'addShoppingItem',...e});
+      renderHome();showToast('✓ נשמר!');
+      document.getElementById('sbtn').disabled=false;
+      document.getElementById('sbtn').textContent='✓ הוסף לרשימה';
+      ['item','qty'].forEach(function(fid){var el=document.getElementById(fid);if(el)el.value='';});
+      var iel=document.getElementById('item');if(iel)iel.focus();
+      return;
     }
     renderHome();closePanel();showToast('✓ נשמר בהצלחה!');
   }catch(err){console.error(err);showToast('❌ שגיאה','error');if(btn){btn.disabled=false;btn.textContent='נסה שנית';}}
